@@ -1,0 +1,23 @@
+[
+  {
+    "id": "827c2225-58bb-4e35-8dde-ff06718285f3",
+    "email": "abc@gmail.com",
+    "name": "Taiwo John",
+    "password": "$2b$10$32AeptLwyGEpOYX2yUIL.uz7eI3j7nWSuIXgOU0ZpYLn2Ml/MoVxK",
+    "role": "user"
+  },
+  {
+    "id": "d44f3e8d-abab-474e-b085-0bf5632845ce",
+    "email": "abcde@gmail.com",
+    "name": "Taiwo John",
+    "password": "$2b$10$S/dGqKYKibF7iQTXPDjX4OgegRLtIKl3tVjP6AUX2j6j1oM3pmFXC",
+    "role": "user"
+  },
+  {
+    "id": "9266c637-af01-487b-919d-51ab7d7b4d4c",
+    "email": "googdness@gmail.com",
+    "name": "Goodness Opeyemi",
+    "password": "$2b$10$fEGoIvhLMJQxfCub5NuQsuIH3kdPAAwAIy.aso7AWwDMF7GuzdNDu",
+    "role": "user"
+  }
+]

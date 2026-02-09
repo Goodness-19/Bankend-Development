@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods (Gold!)</title>
+</head>
+<body>
+    <script>
+        // Map -  Transform items in an array
+
+        let numbers = [1,2,3,4];
+        let doubled = numbers.map(number => number * 2);
+        console.log(doubled);
+
+        const users = [
+            { name: "Taiwo", age: 40},
+            {name: "John", age: 50}
+        ];
+
+        const names = users.map(user => user.name);
+        console.log(names);
+
+        // Foreach 
+        numbers.forEach(num => console.log(num));
+
+        // filter - use to return items that meets condition 
+        let products = [
+            {name: "Aboniki", price: 5000},
+            {name: "Lolipop", price: 2000},
+            {name: "Laptop", price: 50000},
+            {name: "Lamp", price: 3000},
+            {name: "Ero-Arike", price: 20000},
+        ];
+
+        const affordableProducts = products.filter(product => product.price <= 5000 );
+        console.log(affordableProducts);
+
+        // Find - it returns one matching item
+
+        const findProduct = products.find(p => p.name === "Lolipop");
+        console.log(findProduct);
+
+        // Classwork - Find all products that starts with letter L
+
+        const productsWithLetterL = products.find(p => p.name.startsWith("L"));
+        // console.log(productsWithLetterL);
+
+        // Problem is that find only returns one matching item, solution is to use filter to get all matching items
+        const filterProducts = products.filter(p => p.name.startsWith("L"));
+        console.log(filterProducts);
+
+
+
+
+    </script>
+    
+</body>
+</html>

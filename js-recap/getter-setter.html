@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented Programing (OOP) - Getters and Setters</title>
+</head>
+
+<body>
+    <script>
+        // OOP : A way of organizing your code around Objects instead of functions
+        // For getter we use keyword 'get' and for setter we use keyword 'set'
+        class Person {
+            constructor(name){
+                this._name = name;
+            }
+
+            get name(){
+                return this._name;
+            }
+
+            set name(newName){
+                this._name = newName;
+            }
+        }
+
+        let p = new Person("ALice");
+        console.log(p);
+        p.name = "Bob";
+        console.log(p.name);
+
+    </script>
+
+</body>
+
+</html>

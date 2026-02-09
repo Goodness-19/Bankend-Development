@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More OOP Examples</title>
+</head>
+
+<body>
+    <script>
+        // How Methods(function) Really work
+
+        // Variable: String, Number, Boolean, etc
+        let name = "Taiwo";
+        let age = 12;
+        let isAlive = true;
+
+        const profession = "Developer";
+
+        // Regular functions
+        function greetMe(name, age, company) {
+            return `Hello ${name} you are ${age ?? 0} year(s) old! and you work at ${company || "ABC"}`
+        }
+
+        console.log(greetMe("Taiwo", 40, "Google"))
+        console.log(greetMe("John", 30))
+        console.log(greetMe("John"))
+
+        // Function Expression 
+        const add = function (value1, value2) {
+            return parseInt(value1) + parseInt(value2);
+        }
+
+        console.log(add(4, 5));
+        console.log(add("4", "5"));
+
+        //  Arrow Function =>
+
+        const sum = (a, b) => {
+            console.log(parseInt(a) + parseInt(b));
+        }
+
+        const log = (log) => {
+            return console.log(log)
+        }
+
+        // Anonymous function - A function without a name
+        setTimeout( function (){
+            console.log("Hello after 2 seconds")
+        }, 2000)
+
+        // callback function 
+
+        function greet(name, callback){
+            callback(name)
+        }
+
+        greet("Taiwo", function (name) {
+            console.log("Hello ", name)
+        });
+
+        // Exercise
+        // Create an arrow function that can multiply and divide 2 digits 
+        // Validate if zero is passed as second parameter for divide, it should let the user know it's not allowed
+        // Validate if nothing is passed, it should let the user know they need to supply values (Applies to * and /)
+        // E.g multiply(5,5). expected 5 * 5 = 25
+        // E.g divide(10,2). expected 10 / 2 = 5
+        // E.g multiply() - first and second value can not be empty (same as divide)
+        // E.g multiply(5) - second value can not be empty (same as divide)
+        // E.g divide(5,0) - you can not divide by zero !
+
+
+        //Class Methods
+
+        class User {
+            greet() {
+                console.log("Hello from Class");
+            }
+        }
+
+        const user = new User();
+        user.greet();
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

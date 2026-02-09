@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented Programing (OOP) - Abstraction</title>
+</head>
+
+<body>
+    <script>
+        // OOP : A way of organizing your code around Objects instead of functions
+
+        // Principles of OOP
+        //==================
+        // Encapsulation: Hiding the internal details of an Object, by exposing only what's necessary
+        // Abstraction: Hiding the complex implementation details and showing only the essential features
+        // Inheritance
+        // Polymorphism
+
+
+        // Abstraction Example: Hiding complexity and showing only essential features
+        class Car {
+
+            #igniteEngine(){
+                console.log("Engine Started!");
+            }
+
+            #drive() {
+                console.log(`The car is driving!`);
+            }
+
+            start(){
+                this.#igniteEngine();
+                this.#drive();
+            }
+        }
+
+        // New keyword: It is used to create an object (instance) from a class or constructor function
+         const myCar = new Car();
+         myCar.start();
+
+        
+
+
+
+
+    </script>
+
+</body>
+
+</html>

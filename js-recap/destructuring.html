@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+<body>
+    <script>
+        // Arrays
+        const numbers = [10,20,30,40];
+        const first = numbers[0];
+        const second = numbers[1];
+        console.log(second);
+
+
+        // With Destructuring
+        const [a,b,c,d] = numbers;
+        console.log(a,b,c, d);
+
+        // Objects
+        const user = {
+            name: "Taiwo",
+            age: 50,
+            email: "test@mail.com"
+        };
+        const name1 = user.name;
+        const age1 = user.age;
+        const email1 = user.email;
+        console.log(name1, age1, email1);
+
+        // With Destructuring
+        // const {name, age, email} = user;
+        // console.log(name, email, age)
+
+
+        // Another EXAMPLE
+        const request = {
+            email: 'test@mail.com',
+            password: 'a1b2c3d4e5',
+            age: 45,
+            name: 'John Curious',
+            body: {
+                email: 'test@mail.com',
+                password: 'asdf12345'
+            }
+        }
+
+        const {name, email, password, age} = request;
+        console.log(email, password, name, age);
+        const {email: bodyEmail, password: bodyPassword} = request.body;
+        console.log(bodyEmail, bodyPassword)
+
+
+    </script>
+
+    
+</body>
+</html>

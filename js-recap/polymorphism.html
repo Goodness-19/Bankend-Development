@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented Programing (OOP) - Polymorphism</title>
+</head>
+
+<body>
+    <script>
+        // OOP : A way of organizing your code around Objects instead of functions
+
+        // Principles of OOP
+        //==================
+        // Encapsulation: Hiding the internal details of an Object, by exposing only what's necessary
+        // Abstraction: Hiding the complex implementation details and showing only the essential features
+        // Inheritance: Allows a child class to inherit properties and methods from a parent class.
+        // Polymorphism: The same methods can behave differently in different objects
+        
+        // Polymorphism Example: It can be achieved via method overriding in child classes
+
+        class Animal {
+            speak(){
+                this.makeSound();
+            }
+
+            makeSound(){
+                console.log("Generic Sound!");
+            }
+        }
+
+        class Dog extends Animal {
+            makeSound(){
+                console.log("Dog Barks!");
+            }
+        }
+
+        class Cat extends Animal {
+            makeSound(){
+                console.log("Cat meows");
+            }
+        }
+
+        let dog = new Dog();
+        let cat = new Cat();
+
+        dog.speak();
+        cat.speak();
+
+        
+
+        
+
+
+
+
+    </script>
+
+</body>
+
+</html>

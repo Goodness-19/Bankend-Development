@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented Programing (OOP)</title>
+</head>
+
+<body>
+    <script>
+        // OOP : A way of organizing your code around Objects instead of functions
+        // Objects have properties and methods
+        let user = {
+            name: "John",
+            age: 31,
+            greet: function () {
+                console.log(`Hello, I'm ${this.name}`)
+            }
+        }
+
+        user.greet();
+
+        // Javascript ES6 introduced class syntax
+        class Person {
+            // Constructor method
+            // This method runs when you create an object
+            constructor(name, age) {
+                this.name = name;
+                this.myAge = age;
+            }
+
+            greet() {
+                console.log(`Hi, my name is ${this.name} and I am ${this.myAge} years old!`);
+            }
+        }
+
+        const myName = new Person("Taiwo", 13);
+        console.log(myName)
+        myName.greet();
+
+
+
+        
+
+
+
+
+    </script>
+
+</body>
+
+</html>

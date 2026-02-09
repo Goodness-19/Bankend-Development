@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread and Rest </title>
+</head>
+<body>
+    <script> 
+        // Spread 
+        const numbers = [10,20,30];
+        const newNumbers = [...numbers,40,50];
+        newNumbers[0] = 70;
+        console.log(newNumbers)
+        console.log(numbers);
+
+        // mutation 
+        const user = {
+            name: "Taiwo",
+            age: 30,
+            email: "test@mail.com"
+        }
+
+        const anotherUser = {...user};
+
+        anotherUser.age = 31;
+        anotherUser.email = 'test@mail.com';
+
+        console.log(user);
+
+
+        // REST 
+        // Array
+        const numbers1 = [1,2,3,4,5];
+        const [one, ...rest] = numbers1; 
+        console.log(one)
+        console.log(rest)
+
+
+        // Objects
+        const {name, ...others} = user;
+        console.log(name, others);
+
+        // In Function Parameters
+        function sum(...params){
+            return params.reduce((a,b) => a + b, 0);
+        }
+
+        console.log(sum(1,2,3,4));
+
+
+    </script>
+    
+</body>
+</html>

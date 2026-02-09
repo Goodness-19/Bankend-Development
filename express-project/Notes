@@ -1,0 +1,57 @@
+Common Js VS ES module
+require -> CommonJS
+import -> ES Module
+
+Node Js is default to commonJS
+
+Common JS 
+- Older
+- Node-native (Node uses it by Default)
+- Most backend trainings use this.
+
+ES Modules
+- Modern JavaScript
+- Browser Standard
+- Cleaner/Beautiful Syntax
+- Needs Configuration (type=module in package.json file)
+
+Async/Await
+=============
+- If you're using.function, we can't await without the method being async 
+- if a function is async, you need to await the function if you're using somewhere else
+
+async function getUsers(){
+    return // reading 1 million data from json file
+}
+
+const fetchUsers = await getUsers(); // some seconds
+console.log(fetchUsers)
+
+async function updateUser(userId){
+    const allUsers = await getUsers();
+}
+
+
+/////////////////////////
+JWT - JSON Web Token
+
+JSON - DAta Format
+Web - Used in HTTP
+TOKEN - Proof of Identity
+
+JWT Structure
+==============
+It has 3 sections separated by DOTS (.) HEADER.PAYLOAD.SIGNATURE
+1. Header - Algo, typ { "algo": "HS256", "typ": "JWT"}
+2. Payload - Actual Data you're sending for the server to know who this is. 
+{
+  "id": 7761,
+  "email": "vatif@mailinator.com",
+  "user_type": "vendor",
+  "status": "incomplete",
+  "tokenVersion": 0,
+  "iat": 1770233788,
+  "exp": 1770838588
+} // Never put password
+
+3. Signature - The most IMPORTANT (SECRET) - Always in your ENV file 

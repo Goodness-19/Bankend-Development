@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented Programing (OOP) - Static methods</title>
+</head>
+
+<body>
+    <script>
+        // OOP : A way of organizing your code around Objects instead of functions
+
+        class MathUtil{
+            static square(x){
+                return x * x;
+            }
+
+            static sum(a,b){
+                return parseInt(a) + parseInt(b);
+            }
+        }
+
+        const squareCalculation = MathUtil.square(5);
+        console.log(squareCalculation); 
+
+        console.log(MathUtil.sum("5","8"));
+
+        // CLasswork
+        // Create a class called TemperatureConverter with two static methods: DO NOT forget BODMAS
+        // celsiusToFahrenheit(celsius): Converts Celsius to Fahrenheit. - F = (C × 9/5) + 32
+        // fahrenheitToCelsius(fahrenheit): Converts Fahrenheit to Celsius. - C = (F − 32) × 5/9
+
+        class TemperatureConverter {
+            static celsiusToFahrenheit(celsius) {
+                return (celsius * 9/5) + 32;
+            }
+            static fahrenheitToCelsius(fahrenheit) {
+                return (fahrenheit - 32) * 5/9;
+            }
+        }
+        console.log(TemperatureConverter.celsiusToFahrenheit(0));
+        console.log(TemperatureConverter.fahrenheitToCelsius(32));
+
+
+
+
+        // Backend Development File Structures 
+        // Controller Classes (Conceptual) : Receives requests and return responses
+        // Service Classes : It handles business Logics
+        // Databases/Repositories: It handles communication between service class and databases
+
+    </script>
+
+</body>
+
+</html>

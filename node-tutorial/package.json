@@ -1,0 +1,27 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "A simple nodejs tutorial on the basics",
+  "homepage": "https://github.com/theejhay/imagined-idea-js-recap#readme",
+  "bugs": {
+    "url": "https://github.com/theejhay/imagined-idea-js-recap/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theejhay/imagined-idea-js-recap.git"
+  },
+  "license": "ISC",
+  "author": "Imagined Idea",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}

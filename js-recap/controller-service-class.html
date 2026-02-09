@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controller, Service Example</title>
+</head>
+<body>
+    <script>
+        class UserController{
+            constructor(service){
+                this.service = service;
+            }
+
+            getAllUser(){
+                return this.service.getAllUser();
+            }
+
+            getUser(id, userInfo){
+                return this.service.getUser(id, userInfo);
+            }
+        }
+
+        class UserService {
+            createUser(userData){
+                return {
+                    id: 1, ...userData};
+            }
+
+            getAllUser(){
+                return {
+                    id: 1,
+                    name: "Alice",
+                    age: "50"
+                }
+            }
+
+            getUser(id, userInfo){
+                return {
+                    id: id,
+                    name: "John",
+                    age: 45,
+                    ...userInfo
+                }
+            }
+        }
+
+        const userService = new UserService();
+        console.log(userService.createUser({name: "Bob", age: 40}))
+
+        const userController = new UserController(userService);
+        console.log(userController.getAllUser());
+        console.log(userController.getUser(3, {gender: "Male", country: "United States of America"}));
+
+    </script>
+    
+</body>
+</html>

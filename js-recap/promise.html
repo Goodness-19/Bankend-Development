@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+</head>
+
+<body>
+    <script>
+        // lend a friend money - Subject
+        // Until NextWeek - Pending
+        // If they pay - fulfilled
+        // If they don't pay - rejected
+
+        // function getMyMoneyBack(callback){
+        //     setTimeout(() => {
+        //         callback("Here is your money, I have it !")
+        //     }, 2000);
+        // }
+
+        // getMyMoneyBack( result => {
+        //     console.log(result)
+        // })
+
+        // Promise
+        let friendHasMoney = false;
+        function getMyMoneyBack(friendHasMoney) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (friendHasMoney) {
+                        resolve("Here is your money, I have it !");
+                    } else {
+                        reject("Sorry!, no Money")
+                    }
+                }, 2000);
+            });
+        }
+
+        getMyMoneyBack(false)
+            .then(result => console.log(result))
+            .catch(error => console.log(error));
+
+
+        function loginUser(username, password){
+            // if username = admin and password = 1234
+            return new Promise(( resolve, reject) => {
+                if (username === "admin" && password === "1234"){
+                    resolve("Login Successfully!");
+                } else {
+                    reject("Invalid Credentials");
+                }
+            });
+        }
+
+        loginUser("admin", "1234")
+            .then(msg => console.log(msg))
+            .catch(error => console.log(error));
+
+
+    </script>
+</body>
+
+</html>

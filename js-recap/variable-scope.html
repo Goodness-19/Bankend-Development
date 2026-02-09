@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scopes</title>
+</head>
+<body>
+
+    <script>
+        // variables Declaration
+        // Scope
+        // Global, Block, Function
+        // Global Scope : A var declared outside any function or block
+
+        const appName = "Backend API"
+
+        function startApp(){
+            console.log(appName, " - From Function")
+        }
+
+        startApp();
+
+        // Function Scope : It's only available and used inside function 
+
+        function handleLogin(){
+            const message = "Login Successful!";
+            console.log(message)
+        }
+
+        handleLogin();
+
+        // Block Scope - (let and const) - Var declared inside {} only exist inside that block
+
+        const role = "User";
+        if (true){
+            const role = "Admin";
+            console.log(role, '- Block');
+        }
+
+        console.log(role, '- Global');
+
+
+
+        for (let i = 0; i < 5; i++){
+            console.log(i);
+        }
+
+    </script>
+    
+</body>
+</html>

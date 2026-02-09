@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented Programing (OOP) - Inheritance</title>
+</head>
+
+<body>
+    <script>
+        // OOP : A way of organizing your code around Objects instead of functions
+
+        // Principles of OOP
+        //==================
+        // Encapsulation: Hiding the internal details of an Object, by exposing only what's necessary
+        // Abstraction: Hiding the complex implementation details and showing only the essential features
+        // Inheritance: Allows a child class to inherit properties and methods from a parent class.
+        // Polymorphism
+        
+        // Inheritance Example: They use extends to create a child class
+        //                      They use super() to call the parent constructor
+
+        class Person{
+            address = "200, Herbert Lock Road";
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+
+            greet(){
+                console.log(`Hi, I'm ${this.name}`);
+            }
+        }
+
+        class Employee extends Person {
+            constructor(name, age, position, company){
+                super(name, age);
+                this.position = position;
+                this.companyName = company;
+            }
+
+            job(){
+                console.log(`${this.name} works as a ${this.position} at ${this.companyName} `);
+            }
+        }
+
+        let emp = new Employee("John", 40, "Developer", "Imagined Idea");
+        emp.greet();
+        emp.job();
+        console.log(emp.address);
+        
+
+        
+
+
+
+
+    </script>
+
+</body>
+
+</html>
