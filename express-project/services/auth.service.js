@@ -1,74 +1,89 @@
-import fs from "fs/promises";
+import fs from "fs";
+import path from "path";
 import bcrypt from "bcrypt";
-import { v4 as uuidv4 } from "uuid";
 import jwt from "jsonwebtoken";
+import { v4 as uuidv4 } from "uuid";
+import { fileURLToPath } from "url";
 
-const DATA_FILE = "./repository/auth_users.json";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-async function readData() {
-  const data = await fs.readFile(DATA_FILE, "utf8");
-  if (!data.trim()) {
-    return [];
+const usersPath = path.join(__dirname, "../data/users.json");
+
+// Helper functions
+const readUsers = () => {
+  if (!fs.existsSync(usersPath)) {
+    fs.writeFileSync(usersPath, JSON.stringify([]));
   }
+  const data = fs.readFileSync(usersPath);
   return JSON.parse(data);
-}
+};
 
-async function writeData(data) {
-  await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2));
-}
+const writeUsers = (users) => {
+  fs.writeFileSync(usersPath, JSON.stringify(users, null, 2));
+};
 
-async function register(userData) {
-  const authUsers = await readData();
-
-  const exists = authUsers.find(u => u.email === userData.email);
-  if (exists) {
-    throw new Error("user already exists");
+// ==========================
+// Register
+// ==========================
+export const register = async ({ name, email, password }) => {
+  if (!name || !email || !password) {
+    throw new Error("All fields are required");
   }
 
-  const hashedPassword = await bcrypt.hash(userData.password, 10);
+  const users = readUsers();
+
+  const existingUser = users.find((user) => user.email === email);
+  if (existingUser) {
+    throw new Error("Email already exists");
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
 
   const newUser = {
     id: uuidv4(),
-    email: userData.email,
-    name: userData.name,
+    name,
+    email,
     password: hashedPassword,
-    role: "user",
+    createdAt: new Date().toISOString(),
   };
 
-  authUsers.push(newUser);
-  await writeData(authUsers);
+  users.push(newUser);
+  writeUsers(users);
+
+  // Remove password before returning
+  const { password: _, ...userWithoutPassword } = newUser;
+
+  return userWithoutPassword;
+};
+
+// ==========================
+// Login
+// ==========================
+export const login = async ({ email, password }) => {
+  if (!email || !password) {
+    throw new Error("Email and password are required");
+  }
+
+  const users = readUsers();
+
+  const user = users.find((user) => user.email === email);
+  if (!user) {
+    throw new Error("Invalid credentials");
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) {
+    throw new Error("Invalid credentials");
+  }
+
+  const accessToken = jwt.sign(
+    { id: user.id, email: user.email },
+    process.env.JWT_SECRET,
+    { expiresIn: "1h" }
+  );
 
   return {
-    id: newUser.id,
-    name: newUser.name,
-    email: newUser.email,
-    role: newUser.role
+    accessToken,
   };
-}
-
-async function login({ email, password}){
-    const users = await readData();
-    const user = users.find(u => u.email === email);
-    if(!user){
-        throw new Error("Invalid email or password");
-    }
-
-    const isPasswordMatch = await bcrypt.compare(password, user.password);
-    if(!isPasswordMatch) {
-        throw new Error("Invalid email or password");
-    }
-
-    // login successful 
-    const successUser = {
-        id: user.id,
-        name: user.name,
-        email: user.email
-    }
-    //return successUser;
-    const SECRET = process.env.JWT_SECRET;
-    const token = jwt.sign(successUser, SECRET, {expiresIn: "1h"});
-
-    return {token}
-}
-
-export { register, login };
+};
